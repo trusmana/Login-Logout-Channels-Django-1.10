@@ -1,0 +1,33 @@
+{% extends 'registration/base_login.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="card-body">
+	<span class="text-lg text-bold text-primary">Welcome to Menu Login</span>
+	<br/><br/>
+	<form class="form floating-label" action="{% url 'accounts:login' %}" accept-charset="utf-8" method="post">{% csrf_token %}
+  {% if form.errors %}
+  <div class="alert alert-danger">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Error!</strong> Username Dan Password Tidak Cocok. Silahkan Coba Lagi.
+  </div>
+  {% endif %}
+		<div class="form-group">
+			{{ form.username|add_class:"form-control" }}
+			<label for="username">Username</label>
+		</div>
+		<div class="form-group">
+			{{ form.password|add_class:"form-control" }}
+			<label for="password">Password</label>
+		</div>
+		<br/>
+    
+		<div class="row">
+			<div class="col-xs-6 text-left">
+			</div><!--end .col -->
+			<div class="col-xs-6 text-right">
+				<button class="btn btn-primary btn-raised" type="submit">Login</button>
+			</div><!--end .col -->
+		</div><!--end .row -->
+	</form>
+</div>
+{% endblock%}
