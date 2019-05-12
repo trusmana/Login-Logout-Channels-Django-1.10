@@ -2,32 +2,32 @@
 {% block title %}index {% endblock %}
 {% block content %}
 <section>
-    <div class="section-body">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-head style-primary">
-                        <header>Data order</header>
-                        <div class="tools">
-                            <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
-                            <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-			<ul>
-                             {% for user in users %}
-                             <li data-username="{{ user.username|escape }}">
-                             {{ user.username|escape }}: {{ user.status|default:'Offline' }}
-                             </li>
-                             {% endfor %}
-                       </ul>
-                       </div><!--end .table-responsive -->
+<div class="section-body">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-head style-primary">
+                    <header>Data order</header>
+                    <div class="tools">
+                        <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+                        <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
                     </div>
                 </div>
-            </div><!--end .col -->
-        </div><!--end .row -->
-    </div><!--end .section-body -->
+                <div class="card-body">
+                    <div class="table-responsive">
+                    <ul>
+                         {% for user in users %}
+                         <li data-username="{{ user.username|escape }}">
+                         {{ user.username|escape }}: {{ user.status|default:'Offline' }}
+                         </li>
+                         {% endfor %}
+                   </ul>
+                   </div><!--end .table-responsive -->
+                </div>
+            </div>
+        </div><!--end .col -->
+    </div><!--end .row -->
+</div><!--end .section-body -->
 </section>
 {% block script %}
   <script>
