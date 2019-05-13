@@ -4,6 +4,9 @@ from django.contrib.auth import login,logout,get_user_model
 from django.contrib.auth.decorators import login_required
 import datetime
 from django.core.urlresolvers import reverse
+from django.contrib.auth.forms import UserCreationForm
+from django.views.generic.edit import CreateView
+
 
 User = get_user_model()
 
@@ -29,3 +32,15 @@ def login_views(request):
 def logout_views(request):
     logout(request)
     return redirect('accounts:login')
+
+
+class SignUpView(CreateView):
+    template_name = 'accounts/signup.html'
+    form_class = UserCreationForm
+
+def validate_username(request):
+    username = request.GET.get('username', None)
+    data = {
+        'is_taken': User.objects.filter(username__iexact=username).exists()
+    }
+    return JsonResponse(data)
