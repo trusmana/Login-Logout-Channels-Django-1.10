@@ -6,6 +6,7 @@ import datetime
 from django.core.urlresolvers import reverse
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView
+from django.http import JsonResponse
 
 
 User = get_user_model()
