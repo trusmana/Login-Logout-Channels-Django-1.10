@@ -18,7 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',
+    'django.contrib.messages','barang',
     'django.contrib.staticfiles','channels','accounts','widget_tweaks',
 ]
 

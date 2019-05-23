@@ -20,5 +20,6 @@ from accounts.views import index
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('accounts.urls')),
+    url(r'^barang/', include('barang.urls')),
     url(r'^$', index, name='home'),
-]
+    ]
